@@ -4,7 +4,7 @@ include_once "includes/navbar.php";
 
 if(isset($_POST['add'])){
     $email=$_POST['email'];
-    $password=password_verify($_POST['password'],PASSWORD_BCRYPT);
+    $password=password_hash($_POST['password'],PASSWORD_BCRYPT);
     $ins_user_sql="insert into users (email,password) values ('$email','$password')";
 
     if(mysqli_query($conn,$ins_user_sql)){

@@ -8,6 +8,12 @@ if(!isset($_SESSION['email'])){
     redirect("logout.php");
 }
 
+$login_user_email=$_SESSION['email'];
+$login_user_info_sql="select * from users where email='$login_user_email'";
+
+$login_user_info_query=mysqli_query($conn,$login_user_info_sql);
+
+$login_user_info=mysqli_fetch_assoc($login_user_info_query);
 ?>
 
 
